@@ -8,6 +8,7 @@ require_once ('vendor/autoload.php');
 
 <head>
 
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -28,24 +29,6 @@ require_once ('vendor/autoload.php');
 <a class="navbar-brand" href="#">Pandoc-Webservice</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
-<!--    </button>
-<div class="collapse navbar-collapse" id="navbarResponsive">
-<ul class="navbar-nav ml-auto">
-<li class="nav-item active">
-<a class="nav-link" href="#">Home
-<span class="sr-only">(current)</span>
-</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">About</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Services</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Contact</a>
-</li>
-</ul>	-->
 </div>
 </div>
 </nav>
@@ -58,14 +41,11 @@ require_once ('vendor/autoload.php');
 <p class="lead"><strong>Unterschiedliche Textdateien ineinander umwandeln</strong></p>
 
 <ul class="list-unstyled">
-<!--  <li>Bootstrap 4.3.1</li>
-<li>jQuery 3.4.1</li>	-->
+
 </ul>
 </div>
 </div>
 </div>
-
-
 
 
 <!-- Der Webserver speichert die hochgeladene Datei unter einem temporären Namen ab, um nun diese Datei in den Webspace zu bekommen --> 
@@ -73,15 +53,75 @@ require_once ('vendor/autoload.php');
 <?php
     $ziel = "uploads/";
     $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]);
+	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));	
+	
+	
+	
+
+ 
+// Überprüfung der Dateiendung 
+$allowed_extensions = array('pdf', 'txt', 'tex', 'html', 'docx');
+if(!in_array($extension, $allowed_extensions)) {
+ die("<br/><br/><br/><br/><strong><center><font color='red'>Vorsicht: Nur PDF, TXT, TEX, HTML und DOCX-Dateien sind erlaubt</font></center></strong>");
+}
+ 
+ 
+// Überprüfung der Dateigröße
+$max_size = 100*1024;
+if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
+ die("<br/><br/><br/><br/><strong><center><font color='red'>Bitte keine Dateien größer 100MB hochladen</font></center></strong>");
+}
+ 
+//Überprüfung, dass die Datei keine Fehler enthält
+if(function_exists('exif_datatype')) { //Die exif_Dateitype-Funktion erfordert die exif-Erweiterung auf dem Server
+ $allowed_types = array(filetype_pdf, filetype_txt, filetype_docx, filetype_tex, filetype_html);
+ $detected_type = exif_datatype($_FILES["DateiZumHochladen"]["name"]);
+ if(!in_array($detected_type, $allowed_types)) {
+ die("<br/><br/><br/><br/><strong><center><font color='red'>Nur der Upload von Textdateien ist gestattet</font></center></strong>");
+ }
+}
+ 
+//Pfad zum Upload
+$new_path = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+ 
+//Neuer Dateiname falls die Datei bereits existiert
+if(file_exists($new_path)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
+ $id = 1;
+ do {
+ $new_path = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
+ $id++;
+ } while(file_exists($new_path));
+}
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     if(move_uploaded_file($_FILES["DateiZumHochladen"]["tmp_name"], $zieldatei)) {
-        echo "Datei erfolgreich hochgeladen";
+        echo "<br/><br/><br/><br/><strong><center><font color='red'>Datei erfolgreich hochgeladen</font></center></strong>";
     }
     else {
-        echo "Fehler beim Hochladen";
+        echo "<br/><br/><br/><br/><strong><center><font color='red'>Fehler beim Hochladen</font></center></strong>";
     }
     
-
 ?>	
+
+
+
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.slim.min.js"></script>
