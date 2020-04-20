@@ -52,6 +52,7 @@ require_once ('vendor/autoload.php');
 
 <?php
     $ziel = "uploads/";
+	//Pfad zum Upload
     $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]);
 	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));	
 	
@@ -82,29 +83,16 @@ if(function_exists('exif_datatype')) { //Die exif_Dateitype-Funktion erfordert d
 }
  
 //Pfad zum Upload
-$new_path = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
  
 //Neuer Dateiname falls die Datei bereits existiert
-if(file_exists($new_path)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
+if(file_exists($zieldatei)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
  $id = 1;
  do {
- $new_path = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
+ $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
  $id++;
- } while(file_exists($new_path));
+ } while(file_exists($zieldatei));
 }
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -130,4 +118,3 @@ if(file_exists($new_path)) { //Falls Datei existiert, hänge eine Zahl an den Dat
 </body>
 
 </html>
-
