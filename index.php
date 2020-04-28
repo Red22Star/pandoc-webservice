@@ -53,8 +53,9 @@ require_once ('vendor/autoload.php');
 <?php
     $ziel = "uploads/";
 	//Pfad zum Upload
-    $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]);
-	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));	
+ 
+	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));
+	$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;	
 	
 	
 	
@@ -63,14 +64,14 @@ require_once ('vendor/autoload.php');
 // Überprüfung der Dateiendung 
 $allowed_extensions = array('pdf', 'txt', 'tex', 'html', 'docx');
 if(!in_array($extension, $allowed_extensions)) {
- die("<br/><br/><br/><br/><strong><center><font color='red'>Vorsicht: Nur PDF, TXT, TEX, HTML und DOCX-Dateien sind erlaubt</font></center></strong>");
+ die("<br/><br/><br/><strong><center><font color='red'>Vorsicht: Nur PDF, TXT, TEX, HTML und DOCX-Dateien sind erlaubt</font></center></strong>");
 }
  
  
 // Überprüfung der Dateigröße
 $max_size = 100*1024;
 if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
- die("<br/><br/><br/><br/><strong><center><font color='red'>Bitte keine Dateien größer 100MB hochladen</font></center></strong>");
+ die("<br/><br/><br/><strong><center><font color='red'>Bitte keine Dateien größer 100MB hochladen</font></center></strong>");
 }
  
 //Überprüfung, dass die Datei keine Fehler enthält
@@ -78,12 +79,11 @@ if(function_exists('exif_datatype')) { //Die exif_Dateitype-Funktion erfordert d
  $allowed_types = array(filetype_pdf, filetype_txt, filetype_docx, filetype_tex, filetype_html);
  $detected_type = exif_datatype($_FILES["DateiZumHochladen"]["name"]);
  if(!in_array($detected_type, $allowed_types)) {
- die("<br/><br/><br/><br/><strong><center><font color='red'>Nur der Upload von Textdateien ist gestattet</font></center></strong>");
+ die("<br/><br/><br/><strong><center><font color='red'>Nur der Upload von Textdateien ist gestattet</font></center></strong>");
  }
 }
  
-//Pfad zum Upload
-$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+
  
 //Neuer Dateiname falls die Datei bereits existiert
 if(file_exists($zieldatei)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
@@ -100,15 +100,39 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, hänge eine Zahl an den Da
 	
 	
     if(move_uploaded_file($_FILES["DateiZumHochladen"]["tmp_name"], $zieldatei)) {
-        echo "<br/><br/><br/><br/><strong><center><font color='red'>Datei erfolgreich hochgeladen</font></center></strong>";
+        echo "<br/><br/><strong><center><font color='red'>Datei erfolgreich hochgeladen</font></center></strong>";
     }
     else {
-        echo "<br/><br/><br/><br/><strong><center><font color='red'>Fehler beim Hochladen</font></center></strong>";
+        echo "<br/><br/><br/><strong><center><font color='red'>Fehler beim Hochladen</font></center></strong>";
     }
     
 ?>	
 
 
+<!-- Dropdown -->
+<html>  
+<head></head>  
+<title>Static Dropdown List</title> 
+<body bgcolor="pink"> 
+
+ 
+<!-- Conversion List -->
+<br/><br/>  
+<p align="center">
+<select>  
+  <option value="Select">Select</option>}  
+  <option value="LaTeX">LaTeX</option>  
+  <option value="HTML">HTML</option>  
+  <option value="PDF">PDF</option>  
+  <option value="Word">Word</option>  
+  <option value="Mind Map">Mind Map</option>  
+  <option value="Text">Text</option>  
+  <option value="Markup">Markup</option>  
+  <option value="Markdown">Markdown</option>  
+</select> 
+</p>  
+</body>  
+<html> 
 
 
 <!-- Bootstrap core JavaScript -->

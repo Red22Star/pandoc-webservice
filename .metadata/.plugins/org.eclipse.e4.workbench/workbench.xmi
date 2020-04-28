@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_rUymAXFSEeqNyL3KoUjv1A" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_rUymAnFSEeqNyL3KoUjv1A" bindingContexts="_rUymC3FSEeqNyL3KoUjv1A">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;Pandoc_Filter.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\Pandoc_Filter.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/Pandoc_Filter.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;pandocFilters.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\pandocFilters.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/pandocFilters.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;index.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.wst.html.core.htmlsource.source&quot; name=&quot;form.html&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\form.html&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/form.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;index.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;Pandoc_Filter.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\Pandoc_Filter.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/Pandoc_Filter.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.php.editor&quot; name=&quot;pandocFilters.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\pandocFilters.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/pandocFilters.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_rUymAnFSEeqNyL3KoUjv1A" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_sIhJAnFSEeqNyL3KoUjv1A" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="1024" height="542">
@@ -99,7 +99,7 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_saIdfHFSEeqNyL3KoUjv1A" elementId="bottom" containerData="2500" selectedElement="_saIdfXFSEeqNyL3KoUjv1A">
+              <children xsi:type="basic:PartStack" xmi:id="_saIdfHFSEeqNyL3KoUjv1A" elementId="bottom" containerData="2500" selectedElement="_saIdgXFSEeqNyL3KoUjv1A">
                 <children xsi:type="advanced:Placeholder" xmi:id="_saIdfXFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.views.ProblemView" ref="_sZ2woHFSEeqNyL3KoUjv1A" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
@@ -173,17 +173,23 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_sZXocHFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.editorss" selectedElement="_sZYPgHFSEeqNyL3KoUjv1A">
-      <children xsi:type="basic:PartStack" xmi:id="_sZYPgHFSEeqNyL3KoUjv1A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_eLKMcH8rEeqv_9bT4bZgjQ">
+      <children xsi:type="basic:PartStack" xmi:id="_sZYPgHFSEeqNyL3KoUjv1A" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_Nt9pEITwEeqHgq7UoYstdg">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_eLKMcH8rEeqv_9bT4bZgjQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Pandoc_Filter.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;Pandoc_Filter.php&quot; partName=&quot;Pandoc_Filter.php&quot; title=&quot;Pandoc_Filter.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\Pandoc_Filter.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/Pandoc_Filter.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_Nt9pEITwEeqHgq7UoYstdg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="index.php" iconURI="platform:/plugin/org.eclipse.php.ui/icons/full/obj16/phpfile.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.php.editor&quot; name=&quot;index.php&quot; partName=&quot;index.php&quot; title=&quot;index.php&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\index.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/index.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3838&quot; selectionTopPixel=&quot;89&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.php.editor</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_jXrjEIVqEeqPM7S7br97vA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="form.html" iconURI="platform:/plugin/org.eclipse.wst.html.ui/icons/full/obj16/sourceEditor.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wst.html.core.htmlsource.source&quot; name=&quot;form.html&quot; partName=&quot;form.html&quot; title=&quot;form.html&quot; tooltip=&quot;D:\xampp\htdocs\pandoc-webservice\form.html&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/D:/xampp/htdocs/pandoc-webservice/form.html&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;22&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>org.eclipse.wst.html.core.htmlsource.source</tags>
         </children>
       </children>
     </sharedElements>
@@ -209,7 +215,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_s8T9cXFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.views.ProblemView"/>
+      <toolbar xmi:id="_s8T9cXFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_sZ3XsHFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.views.TaskList" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Tasks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/tasks_tsk.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.TasksView"/>
@@ -268,8 +274,14 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_saC94HFSEeqNyL3KoUjv1A" elementId="org.eclipse.wst.server.ui.ServersView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Servers" iconURI="platform:/plugin/org.eclipse.wst.server.ui/icons/cview16/servers_view.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.wst.server.ui.internal.cnf.ServersView2"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.wst.server.ui"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Server</tags>
+      <menus xmi:id="_VJEBUITzEeqHgq7UoYstdg" elementId="org.eclipse.wst.server.ui.ServersView">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_VJHEoITzEeqHgq7UoYstdg" elementId="org.eclipse.wst.server.ui.ServersView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_saGoQHFSEeqNyL3KoUjv1A" elementId="org.eclipse.php.phpunit.PHPUnitView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="PHPUnit" iconURI="platform:/plugin/org.eclipse.php.phpunit/icons/full/main.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.php.phpunit.ui.view.PHPUnitView"/>
@@ -290,7 +302,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOWEMHFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="__TdfgH8qEeqv_9bT4bZgjQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_rWEYe3FSEeqNyL3KoUjv1A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_xUA58Ib9EeqLb8Au7tBk3g" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_rWEYe3FSEeqNyL3KoUjv1A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOWrQHFSEeqNyL3KoUjv1A" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -318,7 +330,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOX5YHFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="__TjmIH8qEeqv_9bT4bZgjQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_rWDKcXFSEeqNyL3KoUjv1A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_xUHAkIb9EeqLb8Au7tBk3g" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_rWDKcXFSEeqNyL3KoUjv1A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_sOYgcHFSEeqNyL3KoUjv1A" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2426,7 +2438,7 @@
   <addons xmi:id="_rUzNGXFSEeqNyL3KoUjv1A" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_rUzNGnFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_rVE54HFSEeqNyL3KoUjv1A" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_v7eZsYb9EeqLb8Au7tBk3g" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_rVzSoHFSEeqNyL3KoUjv1A" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_rVz5sHFSEeqNyL3KoUjv1A" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
