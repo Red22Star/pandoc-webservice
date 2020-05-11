@@ -1,18 +1,21 @@
-<?php 
+<?php
 
 require_once ('vendor/autoload.php');
 
-// Kann die Datei nicht konvertiert werden, wird ein Fehler gezeigt
-	$do_convert = false;
-	if(isset($_FILES["DateiZumHochladen"]["name"])){
-	$do_convert = true;
-	};
-?>
 
+$zieldatei = $_POST['zieldatei'];
+$format = $_POST['format'];
+
+$output = array();
+exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc
+	/xampp/htdocs/pandoc-webservice/$zieldatei -s -o 
+	/xampp/htdocs/pandoc-webservice/uploads/ruecktrittsformular250419.pdf.txt", $output);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -21,6 +24,7 @@ require_once ('vendor/autoload.php');
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -40,26 +44,22 @@ require_once ('vendor/autoload.php');
 <div class="row">
 <div class="col-lg-12 text-center">
 <h1 class="mt-5">Pandoc-Webservice</h1>
-<p class="lead"><strong>Unterschiedliche Textdateien ineinander umwandeln<br/><br/><br/></strong></p>
-<ul class="list-unstyled">
+<p class="lead"><strong>Unterschiedliche Textdateien ineinander umwandeln</strong></p>
 
-<?php
-// Wenn keine Dateien bekommen hat, drucke die html form aus
-  if($do_convert == false){
-    echo '<form action="selectFormat.php" method="post" enctype="multipart/form-data">
-    Datei: <input type="file" name="DateiZumHochladen" id="DateiZumHochladen"/>
-    <input type="submit" value="Upload" name="submit"/>
-    </form>';
-  }
-?>
+
+<br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
+<a href="download.php?zieldatei=ruecktrittsformular250419.pdf.pdf">Click here to Download</a>
+
+
+
+
+
+<ul class="list-unstyled">
 
 </ul>
 </div>
 </div>
 </div>
-
-
-
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.slim.min.js"></script>
