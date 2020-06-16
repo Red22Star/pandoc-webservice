@@ -5,12 +5,77 @@ require_once ('vendor/autoload.php');
 
 $zieldatei = $_POST['zieldatei'];
 $format = $_POST['format'];
-
 $output = array();
-exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc
-	/xampp/htdocs/pandoc-webservice/$zieldatei -s -o 
-	/xampp/htdocs/pandoc-webservice/uploads/ruecktrittsformular250419.pdf.txt", $output);
+exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
+	-s /xampp/htdocs/pandoc-webservice/$zieldatei 
+	-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.txt", $output);
 
+
+/*
+if(isset($_POST['format'])){
+	if($_POST['format'] == 'Asciidoc'){
+		
+	}
+	elseif($_POST['format'] == 'Beamer'){
+		
+	}
+	elseif($_POST['format'] == 'HTML'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
+		-s /xampp/htdocs/pandoc-webservice/$zieldatei 
+		-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.html", $output);
+		
+	}
+	elseif($_POST['format'] == 'LaTeX'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
+		-s /xampp/htdocs/pandoc-webservice/$zieldatei 
+		-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.tex", $output);
+		
+	}
+	elseif($_POST['format'] == 'ms'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
+			-s /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -t markdown -o 
+			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.md", $output);
+		
+	}
+	elseif($_POST['format'] == 'ODT'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
+			 /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -o 
+			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.odt", $output);
+		
+	}
+	elseif($_POST['format'] == 'PDF'){
+		
+	}
+	elseif($_POST['format'] == 'Text'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
+			-s /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -o 
+			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.txt", $output);
+
+				
+	}
+	elseif($_POST['format'] == 'Markdown'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
+		-s /xampp/htdocs/pandoc-webservice/$zieldatei 
+		-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.text", $output);
+		
+	}
+	
+	elseif($_POST['format'] == 'XML'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
+		-s /xampp/htdocs/pandoc-webservice/$zieldatei 
+		-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.db", $output);
+		
+	}
+	
+	elseif($_POST['format'] == 'Word'){
+		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
+			-s /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -o 
+			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.docx", $output);
+		
+	}
+	
+	}
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">

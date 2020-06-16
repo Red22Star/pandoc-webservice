@@ -110,18 +110,29 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 
 <!-- Conversion List -->
 <br/><br/>
-<p align="center">
+
+
+
+<center>
+
+
 	<form action="convert.php" method="post" enctype="multipart/form-data">
     <select id="format" name="format">
-      <option value="Select">Select</option>
+      <option class="Select" value="Select">--Select--</option>
+	  <option value="Markup">Asciidoc</option>
+	  <option value="beamer">Beamer</option>
+      <option value="HTML">HTML</option>	  
       <option value="LaTeX">LaTeX</option>
-      <option value="HTML">HTML</option>
+	  <option value="Markdown">Markdown</option>
+	  <option value="ms">ms</option>
+	  <option value="ODT">ODT</option>
       <option value="PDF">PDF</option>
-      <option value="Word">Word</option>
-      <option value="Mind Map">Mind Map</option>
       <option value="Text">Text</option>
-      <option value="Markup">Markup</option>
-      <option value="Markdown">Markdown</option>
+	  <option value="Text">XML</option>
+      <option value="Word">Word</option>
+
+    <!--  <option value="Mind Map">Mind Map</option> -->
+      
     </select>
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei; ?>">
   <input type="submit" value="Convert" name="submit"/>
