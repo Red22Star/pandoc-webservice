@@ -12,7 +12,7 @@ if(!empty($_GET['zieldatei'])){
 		
 		// Lese die Datei aus
 		header('Content-Length: ' . filesize($fileName));
-		readfile($file);
+		readfile("uploads/".stripcslashes($_GET['zieldatei']));
 		exit;
 		
 
