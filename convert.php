@@ -6,9 +6,23 @@ require_once ('vendor/autoload.php');
 $zieldatei = $_POST['zieldatei'];
 $format = $_POST['format'];
 $output = array();
-exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
-	-s /xampp/htdocs/pandoc-webservice/$zieldatei 
-	-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.txt", $output);
+$execstring = "pandoc ";  
+switch ($_POST['format']){
+	case ".pdf":
+		$execstring .= "uploads/$zieldatei --pdf-engine=xelatex -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+	case ".html":
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		break;
+				
+	case ".md":
+		$execstring .= "-s uploads/$zieldatei -t markdown -o uploads/convert/".$zieldatei.$format;
+		break;
+}
+
+		var_dump($execstring);
+	exec($execstring, $output);
 
 
 /*
@@ -67,7 +81,7 @@ if(isset($_POST['format'])){
 		
 	}
 	
-	elseif($_POST['format'] == 'Word'){
+	elseif($_POST['format'] == '.docx'){
 		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
 			-s /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -o 
 			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.docx", $output);
@@ -113,7 +127,7 @@ if(isset($_POST['format'])){
 
 
 <br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
-<a href="download.php?zieldatei=ruecktrittsformular250419.pdf.pdf">Click here to Download</a>
+<a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>">Click here to Download</a>
 
 
 

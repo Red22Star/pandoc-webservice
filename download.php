@@ -1,7 +1,7 @@
 <?php
 if(!empty($_GET['zieldatei'])){
 	$fileName = basename($_GET['zieldatei']);
-	$filePath = 'uploads/'.$fileName;
+	$filePath = 'uploads/convert/'.$fileName;
 	if(!empty($fileName) && file_exists($filePath)){
 		// Define headers
 		header("Cache-Control: public");
@@ -11,8 +11,8 @@ if(!empty($_GET['zieldatei'])){
 		header("Content-Transfer-Encoding: binary");
 		
 		// Lese die Datei aus
-		header('Content-Length: ' . filesize($fileName));
-		readfile("uploads/".stripcslashes($_GET['zieldatei']));
+		header('Content-Length: ' . filesize($filePath));
+		readfile("uploads/convert/".stripcslashes($_GET['zieldatei']));
 		exit;
 		
 

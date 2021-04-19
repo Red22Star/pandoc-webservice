@@ -3,8 +3,41 @@
 require_once ('vendor/autoload.php');
 
 $do_convert = false;
+$filename= "";
+$file_extension="";
+
+
+
+$values = array(); // values hat Dateiendung 
+$options = array(); // options hat die Namen der Formate für select Liste
+
 if(isset($_FILES["DateiZumHochladen"]["name"])){
   $do_convert = true;
+  
+ // File extension bekommen 
+  $filename= basename($_FILES["DateiZumHochladen"]["name"]);
+  // Datei in Array aufteilen
+  $filename_split=explode(".", $filename);
+ 
+ // Im letzen Element ist die Dateiendung
+  $file_extension= $filename_split[sizeof($filename_split)-1];
+ 
+	
+  // Arrays nach input format befüllen
+  switch($file_extension){
+	case "docx":
+		array_push($values,".html", ".pdf", ".txt", ".md");
+		array_push($options, "HTML", "PDF", "TEXT", "MARKDOWN");
+		break;
+		
+	case "txt":
+		array_push($values,".html", ".pdf", ".db");
+		array_push($options, "HTML", "PDF", "docbook");
+		break;
+	  
+  }
+ 
+  
 };
 
 ?>
@@ -57,15 +90,23 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 	
 	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));
 	$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+	$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
 
 
 
 
 
 // Ueberpruefung der Dateiendung
-$allowed_extensions = array('pdf', 'txt', 'tex', 'html', 'docx');
+$allowed_extensions = array('biblatex','bibtex', 'commonmark', 'commonmark_x',
+'creole', 'csljson','csv', 'docbook', 'docx', 'dokuwiki',
+	'epub', 'fb2', 'gfm', 'haddock', 'html', 'ipynb', 'jats', 'jira', 'json',
+	'latex', 'man', 'md', 'markdown', 'markdown_github', 'markdown_mmd', 'markdown_phpextra', 'markdown_strict',
+ 'mediawiki', 'muse', 'native', 'odt', 'opml', 'org', 'rst', 't2t', 'tex','txt', 'textile',
+	'tikiwiki', 'twiki', 'vimwiki');
+	
+
 if(!in_array($extension, $allowed_extensions)) {
- die("<br/><br/><br/><strong><center><font color='red'>Vorsicht: Nur PDF, TXT, TEX, HTML und DOCX-Dateien sind erlaubt</font></center></strong>");
+ die("<br/><br/><br/><strong><center><font color='red'>Dieses Format kann Pandoc nicht konvertieren</font></center></strong>");
 }
 
 
@@ -119,22 +160,28 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 	<form action="convert.php" method="post" enctype="multipart/form-data">
     <select id="format" name="format">
       <option class="Select" value="Select">--Select--</option>
-	  <option value="Markup">Asciidoc</option>
+	  <?php	
+		for ($i=0;  $i<sizeof($values); $i++){
+		 echo('<option value="'.$values[$i].'">'.$options[$i].'</option>');
+		 
+		}
+	  ?>
+	<!--  <option value="Markup">Asciidoc</option>
 	  <option value="beamer">Beamer</option>
-      <option value="HTML">HTML</option>	  
+      <option value=".html">HTML</option>	  
       <option value="LaTeX">LaTeX</option>
 	  <option value="Markdown">Markdown</option>
 	  <option value="ms">ms</option>
 	  <option value="ODT">ODT</option>
-      <option value="PDF">PDF</option>
-      <option value="Text">Text</option>
+      <option value=".pdf">PDF</option>
+      <option value=".txt">Text</option>
 	  <option value="Text">XML</option>
-      <option value="Word">Word</option>
+      <option value=".docx">Word</option>
 
     <!--  <option value="Mind Map">Mind Map</option> -->
       
     </select>
-    <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei; ?>">
+    <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
   <input type="submit" value="Convert" name="submit"/>
 
   </form>
