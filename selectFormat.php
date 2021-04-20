@@ -26,6 +26,7 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
   // Arrays nach input format befüllen
   switch($file_extension){
 	case "docx":
+<<<<<<< HEAD
 		array_push($values,".html", ".pdf", ".tex", ".md", "asciidoc");
 		array_push($options, "HTML", "PDF", "LATEX", "MARKDOWN", "ASCIIDOC");
 		break;
@@ -65,6 +66,16 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 		array_push($options, "HTML", "PDF", "LATEX", "MARKDOWN", "ASCIIDOC");
 		break;		
 		
+=======
+		array_push($values,".html", ".pdf", ".txt", ".md");
+		array_push($options, "HTML", "PDF", "TEXT", "MARKDOWN");
+		break;
+		
+	case "txt":
+		array_push($values,".html", ".pdf", ".db");
+		array_push($options, "HTML", "PDF", "docbook");
+		break;
+>>>>>>> e895a4af8cd5af4f1b9887d86a59e4ae8257cdeb
 	  
   }
  
@@ -197,7 +208,23 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 		 
 		}
 	  ?>
+<<<<<<< HEAD
 
+=======
+	<!--  <option value="Markup">Asciidoc</option>
+	  <option value="beamer">Beamer</option>
+      <option value=".html">HTML</option>	  
+      <option value="LaTeX">LaTeX</option>
+	  <option value="Markdown">Markdown</option>
+	  <option value="ms">ms</option>
+	  <option value="ODT">ODT</option>
+      <option value=".pdf">PDF</option>
+      <option value=".txt">Text</option>
+	  <option value="Text">XML</option>
+      <option value=".docx">Word</option>
+
+    <!--  <option value="Mind Map">Mind Map</option> -->
+>>>>>>> e895a4af8cd5af4f1b9887d86a59e4ae8257cdeb
       
     </select>
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">

@@ -8,6 +8,7 @@ $format = $_POST['format'];
 $output = array();
 $execstring = "pandoc ";  
 switch ($_POST['format']){
+<<<<<<< HEAD
 	case ".markdown":
 		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
 		break;
@@ -42,6 +43,18 @@ switch ($_POST['format']){
 				
 		case ".md":
 		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
+=======
+	case ".pdf":
+		$execstring .= "uploads/$zieldatei --pdf-engine=xelatex -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+	case ".html":
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		break;
+				
+	case ".md":
+		$execstring .= "-s uploads/$zieldatei -t markdown -o uploads/convert/".$zieldatei.$format;
+>>>>>>> e895a4af8cd5af4f1b9887d86a59e4ae8257cdeb
 		break;
 }
 
