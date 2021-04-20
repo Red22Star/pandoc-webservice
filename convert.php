@@ -6,9 +6,47 @@ require_once ('vendor/autoload.php');
 $zieldatei = $_POST['zieldatei'];
 $format = $_POST['format'];
 $output = array();
-exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe 
-	-s /xampp/htdocs/pandoc-webservice/$zieldatei 
-	-o /xampp/htdocs/pandoc-webservice/uploads/irgendwas.txt", $output);
+$execstring = "pandoc ";  
+switch ($_POST['format']){
+	case ".markdown":
+		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
+		break;
+	
+		case ".latex":
+		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+		case ".tex":
+		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		break;
+			
+		case ".docx":
+		$execstring .= "uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+		case ".odt":
+		$execstring .= "uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+		case ".asciidoc":
+		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		break;
+	
+		case ".pdf":
+		$execstring .= "uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		break;
+		
+		case ".html":
+		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		break;
+				
+		case ".md":
+		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
+		break;
+}
+
+		var_dump($execstring);
+	exec($execstring, $output);
 
 
 /*
@@ -67,7 +105,7 @@ if(isset($_POST['format'])){
 		
 	}
 	
-	elseif($_POST['format'] == 'Word'){
+	elseif($_POST['format'] == '.docx'){
 		exec("/Users/Zakaria/AppData/Local/Pandoc/pandoc.exe
 			-s /xampp/htdocs/pandoc-webservice/$zieldatei.pdf -o 
 			/xampp/htdocs/pandoc-webservice/uploads/$zieldatei.docx", $output);
@@ -97,7 +135,7 @@ if(isset($_POST['format'])){
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 <div class="container">
-<a class="navbar-brand" href="#">Pandoc-Webservice</a>
+<a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php">Pandoc-Webservice</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </div>
@@ -113,7 +151,7 @@ if(isset($_POST['format'])){
 
 
 <br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
-<a href="download.php?zieldatei=ruecktrittsformular250419.pdf.pdf">Click here to Download</a>
+<a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>">Click here to Download</a>
 
 
 
