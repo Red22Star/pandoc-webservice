@@ -25,57 +25,46 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 	
   // Arrays nach input format befüllen
   switch($file_extension){
-	case "docx":
-<<<<<<< HEAD
-		array_push($values,".html", ".pdf", ".tex", ".md", "asciidoc");
-		array_push($options, "HTML", "PDF", "LATEX", "MARKDOWN", "ASCIIDOC");
+		case "docx":
+		array_push($values, ".asciidoc", ".html", ".tex", ".md", ".odt", ".pdf");
+		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF");
 		break;
 		
-	case "md":
-		array_push($values, ".html", ".pdf", ".tex", ".docx", "asciidoc");
-		array_push($options, "HTML", "PDF", "LATEX", "WORD", "ASCIIDOC");
+		case "md":
+		array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
-	case "markdown":
-		array_push($values, ".html", ".pdf", ".tex", ".docx", "asciidoc");
-		array_push($options, "HTML", "PDF", "LATEX", "WORD", "ASCIIDOC");
+		case "markdown":
+		array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
-	case "tex":
-		array_push($values, ".html", ".pdf", ".docx", ".md", "asciidoc");
-		array_push($options, "HTML", "PDF", "WORD", "MARKDOWN", "ASCIIDOC");
+		case "tex":
+		array_push($values, ".asciidoc", ".html", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
-	case "latex":
-		array_push($values, ".html", ".pdf", ".docx", ".md", "asciidoc");
-		array_push($options, "HTML", "PDF", "WORD", "MARKDOWN", "ASCIIDOC");
+		case "latex":
+		array_push($values, ".asciidoc", ".html", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
 		break;	
 		
-	case "html":
-		array_push($values, ".asciidoc", ".tex", ".md", ".odf", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "LATEX", "MARKDOWN", "Open Document Format (ODF)", "PDF", "WORD");
-		break;
-		
-	case "asciidoc":
-		array_push($values, ".html", ".pdf", ".tex", ".md", ".docx");
-		array_push($options, "HTML", "PDF", "LATEX", "MARKDOWN", "WORD");
-		break;
-
-	case "odf":
-		array_push($values, ".html", ".pdf", ".tex", ".md", "asciidoc");
-		array_push($options, "HTML", "PDF", "LATEX", "MARKDOWN", "ASCIIDOC");
+		case "html":
+		array_push($values, ".asciidoc", ".tex", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF", "WORD");
 		break;		
-		
-=======
-		array_push($values,".html", ".pdf", ".txt", ".md");
-		array_push($options, "HTML", "PDF", "TEXT", "MARKDOWN");
-		break;
-		
-	case "txt":
-		array_push($values,".html", ".pdf", ".db");
-		array_push($options, "HTML", "PDF", "docbook");
-		break;
->>>>>>> e895a4af8cd5af4f1b9887d86a59e4ae8257cdeb
+
+		case "odt":
+		array_push($values, ".asciidoc", ".html", ".tex", ".md", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN", "PDF", "WORD");
+		break;		
+				
+		//case "txt":
+		//array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
+		//array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
+		//break;
+
 	  
   }
  
@@ -208,23 +197,7 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 		 
 		}
 	  ?>
-<<<<<<< HEAD
 
-=======
-	<!--  <option value="Markup">Asciidoc</option>
-	  <option value="beamer">Beamer</option>
-      <option value=".html">HTML</option>	  
-      <option value="LaTeX">LaTeX</option>
-	  <option value="Markdown">Markdown</option>
-	  <option value="ms">ms</option>
-	  <option value="ODT">ODT</option>
-      <option value=".pdf">PDF</option>
-      <option value=".txt">Text</option>
-	  <option value="Text">XML</option>
-      <option value=".docx">Word</option>
-
-    <!--  <option value="Mind Map">Mind Map</option> -->
->>>>>>> e895a4af8cd5af4f1b9887d86a59e4ae8257cdeb
       
     </select>
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
