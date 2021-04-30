@@ -78,12 +78,13 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Umwandlung unterschiedlicher Textformate">
+<meta name="author" content="Zakaria Kal">
 <title>Pandoc-Webservice</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
@@ -103,8 +104,12 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center">
-<h1 class="mt-5">Pandoc-Webservice</h1>
-<p class="lead"><strong>Unterschiedliche Textdateien ineinander umwandeln</strong></p>
+<br/><br/>
+<div class="w3-panel w3-white">
+<h1><strong>Pandoc-Webservice</strong></h1>
+<h2>Unterschiedliche Textdateien ineinander umwandeln</h2>
+  </div>
+<br/>
 <ul class="list-unstyled">
 
 </ul>
@@ -186,22 +191,20 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 
 
 <center>
-
-
 	<form action="convert.php" method="post" enctype="multipart/form-data">
-    <select id="format" name="format">
-      <option class="Select" value="Select">--Select--</option>
+	
+	<select class="form-select"aria-label="Default select example" id="format" name="format">
+  	<option selected style="background-color: #D8D8D8">FORMAT WÄHLEN</option>
 	  <?php	
 		for ($i=0;  $i<sizeof($values); $i++){
 		 echo('<option value="'.$values[$i].'">'.$options[$i].'</option>');
 		 
 		}
-	  ?>
-
-      
+	  ?>    
     </select>
+
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
-  <input type="submit" value="Convert" name="submit"/>
+  <input type="submit" value="konvertieren"   class="btn btn-info"   name="submit"/>
 
   </form>
 </p>

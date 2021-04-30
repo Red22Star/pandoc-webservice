@@ -11,7 +11,7 @@ switch ($_POST['format']){
 
 				
 		case ".docx":
-		$execstring .= "uploads/$zieldatei -o - uploads/convert/".$zieldatei.$format;
+		$execstring .= "uploads/$zieldatei -t docx -o uploads/convert/".$zieldatei.$format;
 		break;
 
 		case ".markdown":
@@ -123,12 +123,13 @@ if(isset($_POST['format'])){
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Umwandlung unterschiedlicher Textformate">
+<meta name="author" content="Zakaria Kal">
 <title>Pandoc-Webservice</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
@@ -148,8 +149,13 @@ if(isset($_POST['format'])){
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center">
-<h1 class="mt-5">Pandoc-Webservice</h1>
-<p class="lead"><strong>Unterschiedliche Textdateien ineinander umwandeln</strong></p>
+<br/><br/>
+<div class="w3-panel w3-white">
+<h1><strong>Pandoc-Webservice</strong></h1>
+<h2>Unterschiedliche Textdateien ineinander umwandeln</h2>
+  </div>
+<br/>
+<ul class="list-unstyled">
 
 
 <br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
