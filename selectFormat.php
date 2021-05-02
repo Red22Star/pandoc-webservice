@@ -204,7 +204,7 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
     </select>
 
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
-  <input type="submit" value="konvertieren"   class="btn btn-info"   name="submit"/>
+  <input type="submit" value="konvertieren"   class="btn btn-primary"   name="submit"/>
 
   </form>
 </p>

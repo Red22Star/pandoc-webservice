@@ -124,12 +124,15 @@ if(isset($_POST['format'])){
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Umwandlung unterschiedlicher Textformate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Zakaria Kal">
 <title>Pandoc-Webservice</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -157,10 +160,28 @@ if(isset($_POST['format'])){
 <br/>
 <ul class="list-unstyled">
 
+<!-- download stylen-->
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+</head>
+<body>
+
 
 <br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
-<a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>">Click here to Download</a>
-
+<a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>"><center><button class="btn"><i class="fa fa-download"></i> Download</button></center></a>
 
 
 
