@@ -26,44 +26,44 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
   // Arrays nach input format befüllen
   switch($file_extension){
 		case "docx":
-		array_push($values, ".asciidoc", ".html", ".tex", ".md", ".odt", ".pdf");
-		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF");
+		array_push($values, ".asciidoc", ".html",".json", ".tex", ".md", ".odt", ".pdf");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF");
 		break;
 		
 		case "md":
-		array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".html",".json", ".tex", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
 		case "markdown":
-		array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".html", ".json", ".tex", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
 		case "tex":
-		array_push($values, ".asciidoc", ".html", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".html", ".json", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
 		break;
 		
 		case "latex":
-		array_push($values, ".asciidoc", ".html", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".html", ".json", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
 		break;	
 		
 		case "html":
-		array_push($values, ".asciidoc", ".tex", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".json", ".tex", ".md", ".odt", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "JSON", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF", "WORD");
 		break;		
 
 		case "odt":
-		array_push($values, ".asciidoc", ".html", ".tex", ".md", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN", "PDF", "WORD");
+		array_push($values, ".asciidoc", ".html", ".json", ".tex", ".md", ".pdf", ".docx");
+		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "MARKDOWN", "PDF", "WORD");
 		break;		
 				
-		//case "txt":
-		//array_push($values, ".asciidoc", ".html", ".tex", ".odt", ".pdf", ".docx");
-		//array_push($options, "ASCIIDOC", "HTML", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
-		//break;
+		case "json":
+		array_push($values, ".asciidoc", ".html", ".tex", ".md");
+		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN");
+		break;
 
 	  
   }
@@ -122,16 +122,16 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 
 <?php
     $ziel = "uploads/";
-	//Pfad zum Upload
-	
+	//Pfad zum Upload	
 	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));
-	$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
-	$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+	//$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+	//$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
+
+	$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) ;
+	$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) ;
 
 
-
-
-
+	
 // Ueberpruefung der Dateiendung
 $allowed_extensions = array('biblatex','bibtex', 'commonmark', 'commonmark_x',
 'creole', 'csljson','csv', 'docbook', 'docx', 'dokuwiki',
@@ -147,36 +147,36 @@ if(!in_array($extension, $allowed_extensions)) {
 
 
 // Ueberpruefung der Dateigroesse
-$max_size = 200*1024;
+$max_size = 100*1024;
 if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
  die("<br/><br/><br/><strong><center><font color='red'>Bitte keine Dateien größer als 100 MB hochladen</font></center></strong>");
 }
 
 //Ueberpruefung, dass die Datei keine Fehler enthaelt
-if(function_exists('exif_datatype')) { //Die exif_Dateitype-Funktion erfordert die exif-Erweiterung auf dem Server
- $allowed_types = array(filetype_pdf, filetype_txt, filetype_docx, filetype_tex, filetype_html);
- $detected_type = exif_datatype($_FILES["DateiZumHochladen"]["name"]);
- if(!in_array($detected_type, $allowed_types)) {
- die("<br/><br/><br/><strong><center><font color='red'>Nur der Upload von Textdateien ist gestattet</font></center></strong>");
- }
-}
+//if(function_exists('exif_datatype')) { //Die exif_Dateitype-Funktion erfordert die exif-Erweiterung auf dem Server
+ //$allowed_types = array(filetype_pdf, filetype_txt, filetype_docx, filetype_tex, filetype_html);
+ //$detected_type = exif_datatype($_FILES["DateiZumHochladen"]["name"]);
+ //if(!in_array($detected_type, $allowed_types)) {
+ //die("<br/><br/><br/><strong><center><font color='red'>Nur der Upload von Textdateien ist gestattet</font></center></strong>");
+ //}
+//}
 
 
 
 //Neuer Dateiname falls die Datei bereits existiert
-if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den Dateinamen
- $id = 1;
- do {
- $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
- $id++;
- } while(file_exists($zieldatei));
-}
+//if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den Dateinamen
+// $id = 1;
+// do {
+// $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
+// $id++;
+// } while(file_exists($zieldatei));
+//}
 
 
 
 
     if(move_uploaded_file($_FILES["DateiZumHochladen"]["tmp_name"], $zieldatei)) {
-        echo "<br/><br/><strong><center><font color='red'>Datei wurde erfolgreich hochgeladen</font></center></strong>";
+        echo "<br/><br/><strong><center><font color='green'>Datei wurde erfolgreich hochgeladen</font></center></strong>";
     }
     else {
         echo "<br/><br/><br/><strong><center><font color='red'>Fehler beim Hochladen</font></center></strong>";

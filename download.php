@@ -19,6 +19,3 @@ if(!empty($_GET['zieldatei'])){
 	}
 }	
 
-
-
-?>

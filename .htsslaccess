@@ -1,0 +1,8 @@
+AuthType Basic
+AuthName "Nur fuer WWU-Angehoerige"
+AuthDBMUserFile /www/data/users
+AuthDBMGroupFile /www/data/groups
+AuthBasicProvider dbm
+Require dbm-group an=uni=unsicher
+
+DirectoryIndex index.php

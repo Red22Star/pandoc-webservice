@@ -4,6 +4,9 @@ require_once ('vendor/autoload.php');
 
 
 $zieldatei = $_POST['zieldatei'];
+$name_without_extension = substr($zieldatei, 0, strrpos($zieldatei, "."));
+
+
 $format = $_POST['format'];
 $output = array();
 $execstring = "pandoc ";  
@@ -11,19 +14,19 @@ switch ($_POST['format']){
 
 				
 		case ".docx":
-		$execstring .= "uploads/$zieldatei -t docx -o uploads/convert/".$zieldatei.$format;
+		$execstring .= " -s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
 
 		case ".markdown":
-		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -t markdown -o uploads/convert/".$zieldatei.$format;
 		break;
 	
 		case ".latex":
-		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
 		
 		case ".tex":
-		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
 		
 		case ".odt":
@@ -35,7 +38,7 @@ switch ($_POST['format']){
 		break;
 		
 		case ".html":
-		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
 				
 		case ".md":
@@ -43,13 +46,17 @@ switch ($_POST['format']){
 		break;
 
 		case ".asciidoc":
-		$execstring .= "uploads/$zieldatei -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
+
+		case ".json":
+			$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+			break;
 }
 
 		 var_dump($execstring);
 	exec($execstring, $output);
-
+ 
 
 /*
 if(isset($_POST['format'])){
@@ -116,7 +123,47 @@ if(isset($_POST['format'])){
 	
 	}
 */
+
 ?>
+
+
+
+
+
+
+
+
+
+<?php
+
+
+	// Löschen vom Benutzer hochgeladene Dateien
+
+//$base_directory = dirname(__FILE__);
+//echo $base_directory;
+
+//$path = str_replace(' /www/data/IVV5LWO/htdocs/IVV5LWO/TextTransform/uploads', '', $path);
+//echo $path;  //'/home/myProject/public_html/upload/myFile'
+
+//Now we have correct path and we can delete the file.
+
+//if (file_exists($path)){
+  //  if(unlink($path)){
+    //   echo "File deleted";
+    //}
+//}else{
+  //   echo "File is not exists";
+//}
+
+	//$directory = '/uploads/';
+	//unlink($directory.$_GET['zieldatei']);
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,10 +227,8 @@ if(isset($_POST['format'])){
 <body>
 
 
-<br/><br/><br/><strong><center><font color='red'>Die Datei wurde erfolgreich convertiert<br><br></a></font></center></strong>
+<br/><br/><br/><strong><center><font color='green'>Die Datei wurde erfolgreich konvertiert<br><br></a></font></center></strong>
 <a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>"><center><button class="btn"><i class="fa fa-download"></i> Download</button></center></a>
-
-
 
 
 <ul class="list-unstyled">
