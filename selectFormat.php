@@ -163,14 +163,14 @@ if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
 
 
 
-//Neuer Dateiname falls die Datei bereits existiert
-//if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den Dateinamen
-// $id = 1;
-// do {
-// $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
-// $id++;
-// } while(file_exists($zieldatei));
-//}
+Neuer Dateiname falls die Datei bereits existiert
+if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den Dateinamen
+ $id = 1;
+ do {
+ $zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]).'_'.$id.'.'.$extension;
+ $id++;
+ } while(file_exists($zieldatei));
+}
 
 
 

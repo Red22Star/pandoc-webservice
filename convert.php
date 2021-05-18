@@ -10,9 +10,7 @@ $name_without_extension = substr($zieldatei, 0, strrpos($zieldatei, "."));
 $format = $_POST['format'];
 $output = array();
 $execstring = "pandoc ";  
-switch ($_POST['format']){
-
-				
+	switch ($_POST['format']){			
 		case ".docx":
 		$execstring .= " -s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
 		break;
@@ -54,9 +52,16 @@ switch ($_POST['format']){
 			break;
 }
 
-		 var_dump($execstring);
-	exec($execstring, $output);
- 
+		 	var_dump($execstring);
+			exec($execstring, $output);
+
+			// Hochgeladene Datei nach der Konvertierung löschen	
+			sleep(1);
+			unlink("uploads/".stripcslashes($_POST['zieldatei']));
+	
+
+		
+
 
 /*
 if(isset($_POST['format'])){

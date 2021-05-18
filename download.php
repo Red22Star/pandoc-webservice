@@ -13,6 +13,11 @@ if(!empty($_GET['zieldatei'])){
 		// Lese die Datei aus
 		header('Content-Length: ' . filesize($filePath));
 		readfile("uploads/convert/".stripcslashes($_GET['zieldatei']));
+
+		// Datei nach dem Herunterladen automatisch löschen
+		sleep(10);
+  		unlink("uploads/convert/".stripcslashes($_GET['zieldatei']));
+		
 		exit;
 		
 
