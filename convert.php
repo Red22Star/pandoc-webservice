@@ -4,7 +4,7 @@ require_once ('vendor/autoload.php');
 
 
 $zieldatei = $_POST['zieldatei'];
-$name_without_extension = substr($zieldatei, 0, strrpos($zieldatei, "."));
+$dateiOhneEndung = substr($zieldatei, 0, strrpos($zieldatei, "."));
 
 
 $format = $_POST['format'];
@@ -12,53 +12,96 @@ $output = array();
 $execstring = "pandoc ";  
 	switch ($_POST['format']){			
 		case ".docx":
-		$execstring .= " -s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= " -s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 
 		case ".markdown":
-		$execstring .= "-s uploads/$zieldatei -t markdown -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -t markdown -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 	
 		case ".latex":
-		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 		
 		case ".tex":
-		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 		
 		case ".odt":
-		$execstring .= "uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 		
 		case ".pdf":
-		$execstring .= "uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 		
 		case ".html":
-		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 				
 		case ".md":
-		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "uploads/$zieldatei -t markdown -s -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 
 		case ".asciidoc":
-		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
 		break;
 
 		case ".json":
-			$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$zieldatei.$format;
-			break;
+		$execstring .= "-s uploads/$zieldatei -o uploads/convert/".$dateiOhneEndung.$format;
+		break;
 }
 
-		 	var_dump($execstring);
+		 	//var_dump($execstring);
 			exec($execstring, $output);
 
 			// Hochgeladene Datei nach der Konvertierung löschen	
-			sleep(1);
-			unlink("uploads/".stripcslashes($_POST['zieldatei']));
+			//sleep(1);
+			//unlink("uploads/".stripcslashes($_POST['zieldatei']));
+
+			// Hier bleibt nur die letzte Datei im Server gespeichert
+			$x = 10;  // 6 hours - 6*60*60
+			$current_time = time();
+			$path = './uploads/';		 
+			$files = glob($path.'/*.*');
+			foreach($files as $file) {
+			 $file_creation_time = filemtime($file);
+			 $difference = $current_time - $file_creation_time;
+			  if(is_file($file)) {
+				if ($difference >= $x) {
+				  unlink($file);
+				}
+			  }
+			}
+
+
+
+
 	
+		/*	$path = './uploads/';
+			$days = 1;
+			function deleteOlderFiles($path,$days) {
+				if ($handle = opendir($path)) {
+				  while (false !== ($file = readdir($handle))) {
+					$filelastmodified = filemtime($path . $file);
+					if((time() - $filelastmodified) > $days*10)
+					{
+					  if(is_file($path . $file)) {
+						unlink($path . $file);
+					  }
+					}
+				  }
+				  closedir($handle);
+				}
+			  }
+			  deleteOlderFiles($path,$days); */
+
+
+
+
+
+
+
 
 		
 
@@ -233,7 +276,7 @@ if(isset($_POST['format'])){
 
 
 <br/><br/><br/><strong><center><font color='green'>Die Datei wurde erfolgreich konvertiert<br><br></a></font></center></strong>
-<a href="download.php?zieldatei=<?php echo $zieldatei.$format;?>"><center><button class="btn"><i class="fa fa-download"></i> Download</button></center></a>
+<a href="download.php?zieldatei=<?php echo $dateiOhneEndung.$format;?>"><center><button class="btn"><i class="fa fa-download"></i> Download</button></center></a>
 
 
 <ul class="list-unstyled">

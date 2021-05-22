@@ -163,7 +163,7 @@ if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
 
 
 
-Neuer Dateiname falls die Datei bereits existiert
+// Neuer Dateiname falls die Datei bereits existiert
 if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den Dateinamen
  $id = 1;
  do {
@@ -204,11 +204,29 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
     </select>
 
     <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
-  <input type="submit" value="konvertieren"   class="btn btn-primary"   name="submit"/>
+  <input type="submit" value="konvertieren"   button class="btn"   name="submit"/>
 
   </form>
 </p>
 
+
+
+<!-- Konvertiern button-->
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.slim.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
