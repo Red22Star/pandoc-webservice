@@ -75,7 +75,6 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Umwandlung unterschiedlicher Textformate">
@@ -85,15 +84,18 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='https://css.gg/danger.css' rel='stylesheet'>
 
 </head>
 
 <body>
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 <div class="container">
-<a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php">Pandoc-Webservice</a>
+<a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php"><h4><strong> <i class="fa fa-home"></i>&nbsp; Startseite   </strong></h4></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </div>
@@ -104,18 +106,79 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center">
-<br/><br/>
-<div class="w3-panel w3-white">
-<h1><strong>Pandoc-Webservice</strong></h1>
-<h2>Unterschiedliche Textdateien ineinander umwandeln</h2>
-  </div>
 <br/>
+<div class="w3-panel w3-white">
+<h1><p class="p3">Pandoc-Webservice</p></h1>
+<h2><p class="p3">Konvertierung unterschiedlicher Textdateien</p></h2> </br>
+</div>
 <ul class="list-unstyled">
-
 </ul>
 </div>
 </div>
 </div>
+
+<style>
+/*Alert*/
+
+.danger {
+	padding: 10px 12px; 
+	background-color: #ffdddd;
+	border-left: 6px solid #f44336;
+	border-right: 6px solid #f44336;
+	width: 600px;
+	height: 50px;
+	font-family: "Georgia", Times, serif;
+	font-size: 19px;
+	color: red;
+}
+
+.success {
+	padding: 22px 12px; 
+	background-color: #ddffdd;
+	border-left: 6px solid #04AA6D;
+	border-right: 6px solid #04AA6D;
+	width: 600px;
+	height: 75px;
+	font-family: "Georgia", Times, serif;
+	font-size: 19px;
+	color: #2E8B57;  
+}
+</style>
+
+<!-- Konvertiern button-->
+<style>
+.btn {
+	background-color: DodgerBlue;
+	border: none;
+	color: white;
+	padding: 4px 10px;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+<!-- Darker background on mouse-over -->
+.btn:hover {
+	background-color: RoyalBlue;
+}
+
+<!--Font-->
+.p1 {
+	font-family: "Copperplate", Copperplate, Fantasy;
+}
+.p2 {
+	font-family: "Papyrus", Papyrus, Fantasy;
+	font-weight: 900;
+}
+.p3 {
+	font-family: "Georgia", "Georgia", Serif;
+	font-weight: 900;
+}
+.p4 {
+	font-family: "Times New Roman", "Times New Roman", Serif;
+}
+
+
+</style>
 
 
 <!-- Der Webserver speichert die hochgeladene Datei unter einem temporaeren Namen ab, um nun diese Datei in den Webspace zu bekommen -->
@@ -126,10 +189,8 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 	$extension = strtolower(pathinfo($_FILES["DateiZumHochladen"]["name"], PATHINFO_EXTENSION));
 	//$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
 	//$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) . '.'.$extension;
-
 	$zieldatei = $ziel . basename($_FILES["DateiZumHochladen"]["name"]) ;
 	$zieldatei_filename =  basename($_FILES["DateiZumHochladen"]["name"]) ;
-
 
 	
 // Ueberpruefung der Dateiendung
@@ -140,16 +201,19 @@ $allowed_extensions = array('biblatex','bibtex', 'commonmark', 'commonmark_x',
  'mediawiki', 'muse', 'native', 'odt', 'opml', 'org', 'rst', 't2t', 'tex','txt', 'textile',
 	'tikiwiki', 'twiki', 'vimwiki');
 	
-
 if(!in_array($extension, $allowed_extensions)) {
- die("<br/><br/><br/><strong><center><font color='red'>Dieses Format kann Pandoc nicht konvertieren</font></center></strong>");
+ echo"<center><div class='danger'> <div class='divider'> <div class='inner'><strong><center>&#128543; Dieses Format kann Pandoc nicht konvertieren</center></strong></div></div></div></center>";
+
+
+ die();
 }
 
 
 // Ueberpruefung der Dateigroesse
 $max_size = 100*1024;
 if($_FILES["DateiZumHochladen"]["name"] > $max_size) {
- die("<br/><br/><br/><strong><center><font color='red'>Bitte keine Dateien größer als 100 MB hochladen</font></center></strong>");
+	echo"<center><div class='danger'> <div class='divider'> <div class='inner'> <strong><center>Bitte keine Dateien größer als 100 MB hochladen</center></strong></div></div></div></center>";
+ die();
 }
 
 //Ueberpruefung, dass die Datei keine Fehler enthaelt
@@ -176,10 +240,12 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 
 
     if(move_uploaded_file($_FILES["DateiZumHochladen"]["tmp_name"], $zieldatei)) {
-        echo "<br/><br/><strong><center><font color='green'>Datei wurde erfolgreich hochgeladen</font></center></strong>";
+		echo"<center><div class='success'> <div class='divider'> <div class='inner'> <strong><center>&#x1F600; Die Datei wurde erfolgreich hochgeladen</center></strong></div></div></div></center>";
+
     }
     else {
-        echo "<br/><br/><br/><strong><center><font color='red'>Fehler beim Hochladen</font></center></strong>";
+		echo"<center><div class='danger'> <div class='divider'> <div class='inner'> <strong><center> &#128543; Fehler beim Hochladen</center></strong></div></div></div></center>";
+
     }
 
 ?>
@@ -202,31 +268,13 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 		}
 	  ?>    
     </select>
+	
 
-    <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">
-  <input type="submit" value="konvertieren"   button class="btn"   name="submit"/>
-
+  <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">  
+  <input type="submit" value="konvertieren"   button class="btn"  name="submit"/>
   </form>
-</p>
+   			 
 
-
-
-<!-- Konvertiern button-->
-<style>
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
-}
-</style>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.slim.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

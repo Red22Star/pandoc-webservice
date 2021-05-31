@@ -58,50 +58,7 @@ $execstring = "pandoc ";
 			// Hochgeladene Datei nach der Konvertierung löschen	
 			//sleep(1);
 			//unlink("uploads/".stripcslashes($_POST['zieldatei']));
-
-			// Hier bleibt nur die letzte Datei im Server gespeichert
-			$x = 10;  // 6 hours - 6*60*60
-			$current_time = time();
-			$path = './uploads/';		 
-			$files = glob($path.'/*.*');
-			foreach($files as $file) {
-			 $file_creation_time = filemtime($file);
-			 $difference = $current_time - $file_creation_time;
-			  if(is_file($file)) {
-				if ($difference >= $x) {
-				  unlink($file);
-				}
-			  }
-			}
-
-
-
-
 	
-		/*	$path = './uploads/';
-			$days = 1;
-			function deleteOlderFiles($path,$days) {
-				if ($handle = opendir($path)) {
-				  while (false !== ($file = readdir($handle))) {
-					$filelastmodified = filemtime($path . $file);
-					if((time() - $filelastmodified) > $days*10)
-					{
-					  if(is_file($path . $file)) {
-						unlink($path . $file);
-					  }
-					}
-				  }
-				  closedir($handle);
-				}
-			  }
-			  deleteOlderFiles($path,$days); */
-
-
-
-
-
-
-
 
 		
 
@@ -236,7 +193,7 @@ if(isset($_POST['format'])){
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 <div class="container">
-<a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php">Pandoc-Webservice</a>
+<a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php"><h4><strong> <i class="fa fa-home"></i>&nbsp; Startseite   </strong></h4></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </div>
@@ -247,12 +204,11 @@ if(isset($_POST['format'])){
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center">
-<br/><br/>
-<div class="w3-panel w3-white">
-<h1><strong>Pandoc-Webservice</strong></h1>
-<h2>Unterschiedliche Textdateien ineinander umwandeln</h2>
-  </div>
 <br/>
+<div class="w3-panel w3-white">
+<h1><p class="p3">Pandoc-Webservice</p></h1>
+<h2><p class="p3">Konvertierung unterschiedlicher Textdateien</p></h2> 
+</div>
 <ul class="list-unstyled">
 
 <!-- download stylen-->
@@ -271,14 +227,75 @@ if(isset($_POST['format'])){
   background-color: RoyalBlue;
 }
 </style>
+
+
+<style>
+/*Alert*/
+
+.danger {
+	padding: 10px 12px; 
+	background-color: #ffdddd;
+	border-left: 6px solid #f44336;
+	border-right: 6px solid #f44336;
+	width: 600px;
+	height: 50px;
+	font-family: "Georgia", Times, serif;
+	font-size: 19px;
+	color: red;
+}
+
+.success {
+	padding: 10px 12px; 
+	background-color: #ddffdd;
+	border-left: 6px solid #04AA6D;
+	border-right: 6px solid #04AA6D;
+	width: 600px;
+	height: 50px;
+	font-family: "Georgia", Times, serif;
+	font-size: 19px;
+	color: #2E8B57;
+	}
+<!--Font-->
+.p1 {
+	font-family: "Copperplate", Copperplate, Fantasy;
+}
+.p2 {
+	font-family: "Papyrus", Papyrus, Fantasy;
+	font-weight: 900;
+}
+.p3 {
+	font-family: "Georgia", "Georgia", Serif;
+	font-weight: 900;
+}
+.p4 {
+	font-family: "Times New Roman", "Times New Roman", Serif;	  
+}
+</style>
+
+<!-- Konvertiern button-->
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+<!-- Darker background on mouse-over -->
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+
+</style>
 </head>
 <body>
-
-
-<br/><br/><br/><strong><center><font color='green'>Die Datei wurde erfolgreich konvertiert<br><br></a></font></center></strong>
+<br/>
+<center><div class='success'> <div class='divider'> <div class='inner'> <strong><center>Die Datei wurde erfolgreich konvertiert</center></strong></div></div></div></center>
+<br/><br/>
 <a href="download.php?zieldatei=<?php echo $dateiOhneEndung.$format;?>"><center><button class="btn"><i class="fa fa-download"></i> Download</button></center></a>
-
-
 <ul class="list-unstyled">
 
 </ul>
