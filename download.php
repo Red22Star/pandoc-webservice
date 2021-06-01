@@ -15,8 +15,8 @@ if(!empty($_GET['zieldatei'])){
 		readfile("uploads/convert/".stripcslashes($_GET['zieldatei']));
 
 		// Datei nach dem Herunterladen automatisch löschen
-		sleep(10);
-  		unlink("uploads/convert/".stripcslashes($_GET['zieldatei']));
+		//sleep(10);
+  		//unlink("uploads/convert/".stripcslashes($_GET['zieldatei']));
 		
 		exit;
 		

@@ -5,7 +5,7 @@ require_once ('vendor/autoload.php');
 // Kann die Datei nicht konvertiert werden, wird ein Fehler gezeigt
 	$do_convert = false;
 	if(isset($_FILES["DateiZumHochladen"]["name"])){
-	$do_convert = true;
+		$do_convert = true;
 	};
 ?>
 
@@ -27,14 +27,12 @@ require_once ('vendor/autoload.php');
 </head>
 
 <body>
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 <div class="container">
 <a class="navbar-brand" href="https://www.uni-muenster.de/IVV5LWO/TextTransform/index.php"><h4><strong> <i class="fa fa-home"></i>&nbsp; Startseite   </strong></h4></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
-
 </div>
 </div>
 </nav>
@@ -68,24 +66,24 @@ require_once ('vendor/autoload.php');
 <style>
 <!--Alert-->
 .danger {
-	padding: 10px 12px; 
+	padding: 22px 12px; 
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
 	border-right: 6px solid #f44336;
 	width: 600px;
-	height: 50px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: red;
 }
 
 .success {
-	padding: 10px 12px; 
+	padding: 22px 12px; 
 	background-color: #ddffdd;
 	border-left: 6px solid #04AA6D;
 	border-right: 6px solid #04AA6D;
 	width: 600px;
-	height: 50px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: #2E8B57;

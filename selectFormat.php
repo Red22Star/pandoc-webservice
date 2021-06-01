@@ -27,42 +27,42 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
   switch($file_extension){
 		case "docx":
 		array_push($values, ".asciidoc", ".html",".json", ".tex", ".md", ".odt", ".pdf");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "LaTeX (.tex)", "Markdown (.md)", "Open Document Format (.odt)", "PDF (.pdf)");
 		break;
 		
 		case "md":
 		array_push($values, ".asciidoc", ".html",".json", ".tex", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "LaTeX (.tex)", "Open Document Format (.odt)", "PDF (.pdf)", "Word (.docx)");
 		break;
 		
 		case "markdown":
 		array_push($values, ".asciidoc", ".html", ".json", ".tex", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "LaTeX (.tex)", "Open Document Format (.odt)", "PDF (.pdf)", "Word (.docx)");
 		break;
 		
 		case "tex":
 		array_push($values, ".asciidoc", ".html", ".json", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "Markdown (.md)","Open Document Format (.odt)", "PDF (.pdf)", "Word (.docx)");
 		break;
 		
 		case "latex":
 		array_push($values, ".asciidoc", ".html", ".json", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "MARKDOWN","Open Document Format (ODT)", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "Markdown (.md)","Open Document Format (.odt)", "PDF (.pdf)", "Word (.docx)");
 		break;	
 		
 		case "html":
 		array_push($values, ".asciidoc", ".json", ".tex", ".md", ".odt", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "JSON", "LATEX", "MARKDOWN", "Open Document Format (ODT)", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "JSON (.json)", "LaTeX (.tex)", "Markdown (.md)", "Open Document Format (.odt)", "PDF (.pdf)", "Word (.docx)");
 		break;		
 
 		case "odt":
 		array_push($values, ".asciidoc", ".html", ".json", ".tex", ".md", ".pdf", ".docx");
-		array_push($options, "ASCIIDOC", "HTML", "JSON", "LATEX", "MARKDOWN", "PDF", "WORD");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "JSON (.json)", "LaTeX (.tex)", "Markdown (.md)", "PDF (.pdf)", "Word (.docx)");
 		break;		
 				
 		case "json":
 		array_push($values, ".asciidoc", ".html", ".tex", ".md");
-		array_push($options, "ASCIIDOC", "HTML", "LATEX", "MARKDOWN");
+		array_push($options, "AsciiDoc (.asciidoc)", "HTML (.html)", "LaTeX (.tex)", "Markdown (.md)");
 		break;
 
 	  
@@ -121,12 +121,12 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 /*Alert*/
 
 .danger {
-	padding: 10px 12px; 
+	padding: 22px 12px; 
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
 	border-right: 6px solid #f44336;
 	width: 600px;
-	height: 50px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: red;
@@ -138,7 +138,7 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 	border-left: 6px solid #04AA6D;
 	border-right: 6px solid #04AA6D;
 	width: 600px;
-	height: 75px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: #2E8B57;  
@@ -182,7 +182,6 @@ if(isset($_FILES["DateiZumHochladen"]["name"])){
 
 
 <!-- Der Webserver speichert die hochgeladene Datei unter einem temporaeren Namen ab, um nun diese Datei in den Webspace zu bekommen -->
-
 <?php
     $ziel = "uploads/";
 	//Pfad zum Upload	
@@ -202,10 +201,8 @@ $allowed_extensions = array('biblatex','bibtex', 'commonmark', 'commonmark_x',
 	'tikiwiki', 'twiki', 'vimwiki');
 	
 if(!in_array($extension, $allowed_extensions)) {
- echo"<center><div class='danger'> <div class='divider'> <div class='inner'><strong><center>&#128543; Dieses Format kann Pandoc nicht konvertieren</center></strong></div></div></div></center>";
-
-
- die();
+ 	echo"<center><div class='danger'> <div class='divider'> <div class='inner'><strong><center>Dieses Format kann Pandoc nicht konvertieren</center></strong></div></div></div></center>";
+	die();
 }
 
 
@@ -237,41 +234,34 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 }
 
 
-
-
     if(move_uploaded_file($_FILES["DateiZumHochladen"]["tmp_name"], $zieldatei)) {
-		echo"<center><div class='success'> <div class='divider'> <div class='inner'> <strong><center>&#x1F600; Die Datei wurde erfolgreich hochgeladen</center></strong></div></div></div></center>";
+		echo"<center><div class='success'> <div class='divider'> <div class='inner'> <strong><center>Die Datei wurde erfolgreich hochgeladen</center></strong></div></div></div></center>";
 
     }
     else {
-		echo"<center><div class='danger'> <div class='divider'> <div class='inner'> <strong><center> &#128543; Fehler beim Hochladen</center></strong></div></div></div></center>";
+		echo"<center><div class='danger'> <div class='divider'> <div class='inner'> <strong><center>Fehler beim Hochladen</center></strong></div></div></div></center>";
 
     }
 
 ?>
 
-
 <!-- Conversion List -->
 <br/><br/>
-
-
-
 <center>
 	<form action="convert.php" method="post" enctype="multipart/form-data">
 	
 	<select class="form-select"aria-label="Default select example" id="format" name="format">
-  	<option selected style="background-color: #D8D8D8">FORMAT WÄHLEN</option>
+  	<option selected style="background-color: #D8D8D8" value= "selectFormat">Format Wählen </option>
 	  <?php	
 		for ($i=0;  $i<sizeof($values); $i++){
-		 echo('<option value="'.$values[$i].'">'.$options[$i].'</option>');
-		 
+			echo('<option value="'.$values[$i].'">'.$options[$i].'</option>');		 
 		}
 	  ?>    
     </select>
 	
 
   <input type="hidden" id="zieldatei" name="zieldatei" value="<?php echo $zieldatei_filename; ?>">  
-  <input type="submit" value="konvertieren"   button class="btn"  name="submit"/>
+  <input type="submit" value="konvertieren"   button class="btn"  name="submit" disabled />
   </form>
    			 
 
@@ -279,6 +269,19 @@ if(file_exists($zieldatei)) { //Falls Datei existiert, haenge eine Zahl an den D
 <script src="vendor/jquery/jquery.slim.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script>
+// Konvertierungstaste funktioniert nur bei Formatsauswahl
+$('select').on('change', function() {
+	
+	if(this.value != 'selectFormat'){
+		$('.btn').prop('disabled', false);
+	}else {
+		$('.btn').prop('disabled', true);
+	}
+});
+
+
+</script>
 </body>
 
 </html>

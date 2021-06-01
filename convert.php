@@ -135,40 +135,6 @@ if(isset($_POST['format'])){
 
 
 
-
-
-
-
-<?php
-
-
-	// Löschen vom Benutzer hochgeladene Dateien
-
-//$base_directory = dirname(__FILE__);
-//echo $base_directory;
-
-//$path = str_replace(' /www/data/IVV5LWO/htdocs/IVV5LWO/TextTransform/uploads', '', $path);
-//echo $path;  //'/home/myProject/public_html/upload/myFile'
-
-//Now we have correct path and we can delete the file.
-
-//if (file_exists($path)){
-  //  if(unlink($path)){
-    //   echo "File deleted";
-    //}
-//}else{
-  //   echo "File is not exists";
-//}
-
-	//$directory = '/uploads/';
-	//unlink($directory.$_GET['zieldatei']);
-?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,7 +151,6 @@ if(isset($_POST['format'])){
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -233,24 +198,24 @@ if(isset($_POST['format'])){
 /*Alert*/
 
 .danger {
-	padding: 10px 12px; 
+	padding: 22px 12px; 
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
 	border-right: 6px solid #f44336;
 	width: 600px;
-	height: 50px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: red;
 }
 
 .success {
-	padding: 10px 12px; 
+	padding: 22px 12px; 
 	background-color: #ddffdd;
 	border-left: 6px solid #04AA6D;
 	border-right: 6px solid #04AA6D;
 	width: 600px;
-	height: 50px;
+	height: 70px;
 	font-family: "Georgia", Times, serif;
 	font-size: 19px;
 	color: #2E8B57;
